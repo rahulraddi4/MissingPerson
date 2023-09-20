@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746030424954",
+    "project_id": "missingperson-ad664",
+    "storage_bucket": "missingperson-ad664.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746030424954:android:df4f7924ebffd77617ecc3",
+        "android_client_info": {
+          "package_name": "com.missingperson_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746030424954-l8ip9nkcvmr3e6pg0jljhhq05isf1hb6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvR42w4rJjFy0-IQi4Vf9nCmTw16uUpnk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746030424954-l8ip9nkcvmr3e6pg0jljhhq05isf1hb6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
