@@ -15,7 +15,7 @@ const Home = (props) => {
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, paddingTop: 70 }}>
                     <Text style={{ color: 'white' }}>If you are a Normal Citizen, Please</Text>
                     <TouchableOpacity
-                        onPress={() => props.navigation.navigate("Main2")} // Replace "MainPage" with the actual route name for your main page
+                        onPress={() => props.navigation.navigate("Main2")}
                         style={{ backgroundColor: blue, borderRadius: 5, padding: 10 }}
                     >
                         <Text style={{ color: '#1bfc06', fontSize: 15, fontWeight: 'bold' }}>Click here</Text>

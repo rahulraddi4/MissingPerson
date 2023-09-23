@@ -1,9 +1,11 @@
-import { View, Text, Button, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import React from 'react';
 
-export default function Btn({ bgColor, btnLabel, textColor, Press }) {
+export default function Btn({ bgColor, btnLabel, textColor, Press, isLoading }) {
     return (
-        <TouchableOpacity onPress={Press}
+        <TouchableOpacity
+            onPress={Press}
+            disabled={isLoading} // Disable the button when loading
             style={{
                 elevation: 5,
                 backgroundColor: bgColor,
@@ -12,11 +14,15 @@ export default function Btn({ bgColor, btnLabel, textColor, Press }) {
                 width: 320,
                 paddingVertical: 5,
                 marginVertical: 75,
-
-            }}>
-            <Text style={{ color: textColor, fontSize: 25, fontWeight: 'bold' }}>
-                {btnLabel}
-            </Text>
+            }}
+        >
+            {isLoading ? (
+                <ActivityIndicator size="small" color={textColor} />
+            ) : (
+                <Text style={{ color: textColor, fontSize: 25, fontWeight: 'bold' }}>
+                    {btnLabel}
+                </Text>
+            )}
         </TouchableOpacity>
     );
 }

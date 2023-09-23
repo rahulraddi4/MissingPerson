@@ -10,6 +10,8 @@ import Login from './Login';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
+import { storage } from '../firebase-config';
+
 
 const Signup = props => {
     const [email, setEmail] = useState('');
@@ -137,6 +139,7 @@ const Signup = props => {
                             bgColor={darkGreen}
                             btnLabel="Signup"
                             Press={() => handleSignup()}
+                            isLoading={isLoading}
                         />
                     </View>
                     <View

@@ -16,7 +16,7 @@ const Main = () => {
             <Btn Press={async () => {
                 await Auth().signOut();
                 navigation.dispatch(StackActions.popToTop());
-                //navigation.navigate('Login');
+
             }} textColor='white' bgColor={darkGreen} btnLabel='Logout' />
         </View>
     );

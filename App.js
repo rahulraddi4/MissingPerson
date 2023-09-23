@@ -10,7 +10,6 @@ import Auth from '@react-native-firebase/auth';
 import SplashScreen from './src/SplashScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import Post from './src/Post';
-import AddPost from './src/AddPost';
 import AddPost1 from './src/AddPost1';
 import Adding from './src/Adding';
 import DetailScreen from './src/DetailScreen';
