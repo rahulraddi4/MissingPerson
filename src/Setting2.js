@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
-import BackgroundScreen from './BackgroundScreen';
+import BackgroundScreen from './Background/BackgroundScreen';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import { useNavigation } from "@react-navigation/native";
 import Auth from '@react-native-firebase/auth';
-import Backgroundfive from "./Backgroundfive";
+import Backgroundfive from "./Background/Backgroundfive";
 import Home from './Home';
 
 const Setting2 = () => {

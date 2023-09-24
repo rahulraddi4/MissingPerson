@@ -5,8 +5,8 @@ import { darkGreen } from "./constants";
 import Auth from '@react-native-firebase/auth';
 import { useNavigation, StackActions } from "@react-navigation/native";
 import database from '@react-native-firebase/database';
-import Backgroundone from "./Backgroundone";
-import Backgroundfive from "./Backgroundfive";
+import Backgroundone from "./Background/Backgroundone";
+import Backgroundfive from "./Background/Backgroundfive";
 
 const Profile = () => {
     const navigation = useNavigation();

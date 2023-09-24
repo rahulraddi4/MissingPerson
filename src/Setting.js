@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, ScrollView } from 'react-native'; // Import ScrollView
 import { Picker } from '@react-native-picker/picker';
-import BackgroundScreen from './BackgroundScreen';
+import BackgroundScreen from './Background/BackgroundScreen';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import { useNavigation, StackActions } from "@react-navigation/native";
 import Auth from '@react-native-firebase/auth';
-import Backgroundfive from "./Backgroundfive";
+import Backgroundfive from "./Background/Backgroundfive";
 const Setting = () => {
     const navigation = useNavigation();
     const [showNotifications, setShowNotifications] = useState(false);

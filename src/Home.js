@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import Backgroundone from './Backgroundone';
+import Backgroundone from './Background/Backgroundone';
 import Btn from './Btn';
 import { darkGreen, green, blue } from './constants'; // Assuming you have a 'blue' color defined in your 'constants' file
 

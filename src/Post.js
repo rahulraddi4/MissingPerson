@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Image, StyleSheet, Button, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, Image, StyleSheet, Button, ScrollView, ActivityIndicator } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import { uploadBytes, getDownloadURL } from 'firebase/storage';
-import Backgroundthree from './Backgroundthree';
+import Backgroundthree from './Background/Backgroundthree';
 import Field2 from './Field2';
 import database from '@react-native-firebase/database';
 import { SafeAreaView } from 'react-native';
@@ -24,11 +24,13 @@ const Post = () => {
     const [fullImgRefPath, setFullImgRefPath] = useState('');
     const [imgDownloadUrl, setImgDownloadUrl] = useState('');
     const [postId, setPostId] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigation = useNavigation();
 
     const writeToDatabase = async () => {
         try {
+            setIsLoading(true);
             // Define the data you want to store in the database
             const data = {
                 name,
@@ -59,7 +61,7 @@ const Post = () => {
             setFullImgRefPath(imagePut.metadata.fullPath);
             const imageUrl = await imageResponse.getDownloadURL();
             setImgDownloadUrl(imageUrl);
-
+            setIsLoading(false);
             // Alert the user
             alert('Data and Image Uploaded Successfully');
 
@@ -67,6 +69,7 @@ const Post = () => {
             navigation.navigate('Feed');
         } catch (err) {
             console.log(err);
+            setIsLoading(false);
         }
     };
     const pickImage = async () => {
@@ -136,37 +139,45 @@ const Post = () => {
                     <Field2 placeholder="Any Health Condition(If there's Nothing, Type NO)" value={health} onChangeText={value => setHealth(value)} />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    {imageData ? (
-                        <Image
-                            source={{ uri: imageData.uri }}
-                            style={{ height: 100, width: 100, marginBottom: 20 }}
-                        />
+                    {isLoading ? (
+                        <ActivityIndicator size="large" color="blue" />
                     ) : (
-                        <Text>No Image Found</Text>
+                        <>
+                            {imageData ? (
+                                <Image
+                                    source={{ uri: imageData.uri }}
+                                    style={{ height: 100, width: 100, marginBottom: 20 }}
+                                />
+                            ) : (
+                                <Text>No Image Found</Text>
+                            )}
+
+                            <View
+                                style={{
+                                    width: '100%',
+                                    flexDirection: 'row',
+                                    justifyContent: 'space-around',
+                                }}>
+                                <Button title="Select Image" onPress={() => pickImage()} />
+                                <Button title="Upload" onPress={() => uploadImage()} />
+                                <Button
+                                    title="Delete Post"
+                                    onPress={() => deleteImage()}
+                                    color="red"
+                                />
+                            </View>
+
+                            <View style={{ marginTop: 30 }}>
+                                <Text>
+                                    Url = {imgDownloadUrl.length > 0 ? imgDownloadUrl : 'not found'}
+                                </Text>
+                            </View>
+
+                            <Image source={{ uri: imgDownloadUrl }} style={{ height: 300, width: 300 }} />
+                        </>
                     )}
-                    <View
-                        style={{
-                            width: '100%',
-                            flexDirection: 'row',
-                            justifyContent: 'space-around',
-                        }}>
-                        <Button title="Select Image" onPress={() => pickImage()} />
-                        <Button title="Upload" onPress={() => uploadImage()} />
-                        <Button
-                            title="Delete Post"
-                            onPress={() => deleteImage()}
-                            color="red"
-                        />
-                    </View>
-
-                    <View style={{ marginTop: 30 }}>
-                        <Text>
-                            Url = {imgDownloadUrl.length > 0 ? imgDownloadUrl : 'not found'}
-                        </Text>
-                    </View>
-
-                    <Image source={{ uri: imgDownloadUrl }} style={{ height: 300, width: 300 }} />
                 </View>
+
             </View>
 
         </Backgroundthree>

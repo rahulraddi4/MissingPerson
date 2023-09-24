@@ -3,7 +3,7 @@ import { SafeAreaView, TouchableOpacity, Text } from "react-native";
 import { storageRef, storage } from "../firebase-config";
 import { launchImageLibrary } from "react-native-image-picker";
 import { uploadBytes, getDownloadURL } from "firebase/storage";
-import Backgroundthree from "./Backgroundthree";
+import Backgroundthree from "./Background/Backgroundthree";
 
 const AddPost1 = ({ navigation }) => {
     const [image, setImage] = useState(null);

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import Backgroundthree from './Backgroundthree';
+import Backgroundthree from './Background/Backgroundthree';
 import Btn from './Btn';
 import { green, bgColor } from './constants';
 import LinearGradient from 'react-native-linear-gradient';

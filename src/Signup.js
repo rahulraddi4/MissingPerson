@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Touchable, TouchableOpacity } from 'react-native';
-import Backgroundone from './Backgroundone';
+import Backgroundone from './Background/Backgroundone';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import Field from './Field';

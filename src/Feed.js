@@ -3,7 +3,7 @@ import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'rea
 import { useNavigation } from '@react-navigation/native';
 import DetailScreen from './DetailScreen';
 import { FontAwesome } from 'react-native-vector-icons';
-import Backgroundfive from "./Backgroundfive";
+import Backgroundfive from "./Background/Backgroundfive";
 
 const Feed = () => {
     const navigation = useNavigation();

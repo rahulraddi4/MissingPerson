@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import Backgroundone from './Backgroundone';
+import Backgroundone from './Background/Backgroundone';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import Field from './Field';
@@ -88,11 +88,9 @@ const Login = () => {
                         </Text>
                     </View>
                     <View style={{ marginTop: 20 }}>
-                        {isLoading ? (
-                            <ActivityIndicator size="large" color={darkGreen} />
-                        ) : (
-                            <Btn textColor="white" bgColor={darkGreen} btnLabel="Login" Press={() => handleLogin()} />
-                        )}
+
+                        <Btn textColor="white" bgColor={darkGreen} btnLabel="Login" Press={() => handleLogin()} isLoading={isLoading} />
+
                     </View>
                     <View
                         style={{
