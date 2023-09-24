@@ -4,7 +4,7 @@ import DocumentPicker from 'react-native-document-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
 import { uploadBytes, getDownloadURL } from 'firebase/storage';
-import Backgroundthree from './Background/Backgroundthree';
+import Backgroundthree from './Backgroundthree';
 import Field2 from './Field2';
 import database from '@react-native-firebase/database';
 import { SafeAreaView } from 'react-native';
@@ -105,14 +105,7 @@ const Post = () => {
 
 
 
-    const deleteImage = async () => {
-        try {
-            const response = await storage().ref(fullImgRefPath).delete();
-            console.log(response);
-        } catch (err) {
-            console.log(err);
-        }
-    };
+
 
     return (
         <Backgroundthree>
@@ -154,18 +147,21 @@ const Post = () => {
 
                             <View
                                 style={{
-                                    width: '100%',
-                                    flexDirection: 'row',
+                                    width: '80%',
+                                    paddingRight: 60,
                                     justifyContent: 'space-around',
                                 }}>
                                 <Button title="Select Image" onPress={() => pickImage()} />
-                                <Button title="Upload" onPress={() => uploadImage()} />
-                                <Button
-                                    title="Delete Post"
-                                    onPress={() => deleteImage()}
-                                    color="red"
-                                />
+
+
                             </View>
+
+                            <TouchableOpacity
+                                onPress={() => uploadImage()}
+                                style={styles.uploadButton}>
+                                <Text style={styles.uploadButtonText}>UPLOAD</Text>
+                            </TouchableOpacity>
+
 
                             <View style={{ marginTop: 30 }}>
                                 <Text>
@@ -207,6 +203,7 @@ const styles = StyleSheet.create({
     },
     form: {
         marginBottom: 20,
+        marginRight: 30
     },
     imagePickerButton: {
         backgroundColor: 'rgba(0, 255, 0, 0.5)',
@@ -228,18 +225,19 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     uploadButton: {
-        backgroundColor: 'blue',
-        padding: 10,
-        borderRadius: 5,
+        backgroundColor: 'green',
+        padding: 15,
+        borderRadius: 30,
         alignItems: 'center',
         width: '80%',
-        alignSelf: 'center',
         marginTop: 20,
+        marginRight: 60
     },
     uploadButtonText: {
         color: 'white',
         fontWeight: 'bold',
     },
+
 });
 
 export default Post;

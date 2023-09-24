@@ -10,7 +10,7 @@ import Auth from '@react-native-firebase/auth';
 import SplashScreen from './src/SplashScreen';
 import TabNavigator from './src/navigation/TabNavigator';
 import Post from './src/Post';
-import AddPost1 from './src/AddPost1';
+
 import Adding from './src/Adding';
 import DetailScreen from './src/DetailScreen';
 import TabNavigator2 from './src/navigation/TabNavigator2';
@@ -38,7 +38,7 @@ const App = () => {
         <Stack.Screen name="Main2" component={TabNavigator2} />
         <Stack.Screen name="Post" component={Post} />
         <Stack.Screen name="Adding" component={Adding} />
-        <Stack.Screen name="AddPost1" component={AddPost1} />
+
         <Stack.Screen name="Detail" component={DetailScreen} options={({ route }) => ({ title: route.params.name })} />
       </Stack.Navigator>
     </NavigationContainer>
