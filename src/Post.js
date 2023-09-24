@@ -142,7 +142,7 @@ const Post = () => {
                                     style={{ height: 100, width: 100, marginBottom: 20 }}
                                 />
                             ) : (
-                                <Text>No Image Found</Text>
+                                <Text style={{ paddingRight: 60, paddingBottom: 20, color: 'white' }}>No Image Found</Text>
                             )}
 
                             <View

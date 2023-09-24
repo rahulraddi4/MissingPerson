@@ -20,7 +20,7 @@ const Signup = props => {
     const [message, setMessage] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [contactNumber, setContactNumber] = useState('');
-
+    const [isLoading, setIsLoading] = useState(false);
 
     const navigation = useNavigation();
 
