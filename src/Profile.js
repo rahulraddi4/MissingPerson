@@ -5,8 +5,7 @@ import { darkGreen } from "./constants";
 import Auth from '@react-native-firebase/auth';
 import { useNavigation, StackActions } from "@react-navigation/native";
 import database from '@react-native-firebase/database';
-import Backgroundone from "./Background/Backgroundone";
-import Backgroundfive from "./Background/Backgroundfive";
+import Background from "./Background";
 
 const Profile = () => {
     const navigation = useNavigation();
@@ -32,7 +31,7 @@ const Profile = () => {
     };
 
     return (
-        <Backgroundfive>
+        <Background source={require("./assets/Background5.jpg")}>
             <View style={styles.container}>
                 <Text style={styles.headerText}>Profile</Text>
                 <View style={styles.userDataContainer}>
@@ -60,7 +59,7 @@ const Profile = () => {
                     btnLabel='Logout'
                 />
             </View>
-        </Backgroundfive>
+        </Background>
     );
 }
 

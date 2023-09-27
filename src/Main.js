@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, View } from 'react-native';
 import Btn from "./Btn";
 import { darkGreen } from "./constants";
-import { useRoute } from '@react-navigation/native';
 import Auth from '@react-native-firebase/auth';
 import { useNavigation, StackActions } from "@react-navigation/native";
-import Home from "./Home";
 
 const Main = () => {
     const navigation = useNavigation()

@@ -8,12 +8,11 @@ import Main from './src/Main';
 import { useEffect, useState } from 'react';
 import Auth from '@react-native-firebase/auth';
 import SplashScreen from './src/SplashScreen';
-import TabNavigator from './src/navigation/TabNavigator';
+import { TabNavigator, PartialTabNavigator } from './src/navigation/TabNavigator';
 import Post from './src/Post';
-
 import Adding from './src/Adding';
 import DetailScreen from './src/DetailScreen';
-import TabNavigator2 from './src/navigation/TabNavigator2';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -35,7 +34,7 @@ const App = () => {
         <Stack.Screen name="Signup" component={Signup} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Main" component={TabNavigator} />
-        <Stack.Screen name="Main2" component={TabNavigator2} />
+        <Stack.Screen name="Main2" component={PartialTabNavigator} />
         <Stack.Screen name="Post" component={Post} />
         <Stack.Screen name="Adding" component={Adding} />
 

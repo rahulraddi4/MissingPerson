@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import Backgroundone from './Background/Backgroundone';
+import Background from './Background';
 import Btn from './Btn';
-import { darkGreen, green, blue } from './constants'; // Assuming you have a 'blue' color defined in your 'constants' file
+import { darkGreen, green, blue } from './constants';
 
 const Home = (props) => {
     return (
-        <Backgroundone>
+        <Background source={require("./assets/leaves.jpg")}>
             <View style={{ marginHorizontal: 40, marginVertical: 60 }}>
                 <Text style={{ color: 'white', fontSize: 30, fontFamily: 'AbrilFatface' }}>Let's Start</Text>
                 <Text style={{ marginBottom: -15, color: 'white', fontSize: 30, fontFamily: 'AbrilFatface' }}>Finding.!!</Text>
@@ -15,7 +15,7 @@ const Home = (props) => {
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: 20, paddingTop: 70 }}>
                     <Text style={{ color: 'white' }}>If you are a Normal Citizen, Please</Text>
                     <TouchableOpacity
-                        onPress={() => props.navigation.navigate("Main2")}
+                        onPress={() => props.navigation.replace("Main2")}
                         style={{ backgroundColor: blue, borderRadius: 5, padding: 10 }}
                     >
                         <Text style={{ color: '#1bfc06', fontSize: 15, fontWeight: 'bold' }}>Click here</Text>
@@ -26,7 +26,7 @@ const Home = (props) => {
                     Together, we can be the HOPE they need, the voice they Deserve, and the Strength that brings them back HOME!!!"
                 </Text>
             </View>
-        </Backgroundone>
+        </Background>
     );
 }
 

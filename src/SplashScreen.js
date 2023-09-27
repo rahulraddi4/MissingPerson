@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 import Auth from '@react-native-firebase/auth';
 import { useNavigation, StackActions } from '@react-navigation/native';
-import Backgroundtwo from './Backgroundtwo';
+import Background from './Background';
 
 
 export default function SplashScreen() {
@@ -20,9 +20,9 @@ export default function SplashScreen() {
     }, []);
     return (
 
-        <Backgroundtwo>
+        <Background source={require("./assets/screen.png")}>
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}></View>
-        </Backgroundtwo>
+        </Background>
 
     )
 }

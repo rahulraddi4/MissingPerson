@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import Backgroundone from './Background/Backgroundone';
+import Background from './Background';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import Field from './Field';
-import Main from './Main';
 import Auth from '@react-native-firebase/auth';
-import { StackActions, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -23,7 +23,10 @@ const Login = () => {
                 const isUserLogin = await Auth().signInWithEmailAndPassword(email, password);
                 setMessage('');
                 console.log(isUserLogin);
-                navigation.dispatch(StackActions.replace('Main'));
+                navigation.dispatch(CommonActions.reset({
+                    index: 0,
+                    routes: [{ name: 'Main' }],
+                }));
             } else {
                 alert('Please check Email and Password credentials!!!');
             }
@@ -37,7 +40,7 @@ const Login = () => {
     };
 
     return (
-        <Backgroundone>
+        <Background source={require("./assets/leaves.jpg")}>
             <View style={{ alignItems: 'center', width: 390 }}>
                 <Text
                     style={{
@@ -106,7 +109,7 @@ const Login = () => {
                     </View>
                 </View>
             </View>
-        </Backgroundone>
+        </Background>
     );
 };
 

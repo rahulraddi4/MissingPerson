@@ -1,16 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text, Touchable, TouchableOpacity } from 'react-native';
-import Backgroundone from './Background/Backgroundone';
+import Background from './Background';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import Field from './Field';
-import Main from './Main';
-import Login from './Login';
 import auth from '@react-native-firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
 import { storage } from '../firebase-config';
+import { CommonActions } from '@react-navigation/native';
+
 
 
 const Signup = props => {
@@ -40,7 +40,10 @@ const Signup = props => {
                         });
                         console.log('User data saved in the database.');
 
-                        navigation.navigate('Login');
+                        navigation.dispatch(CommonActions.reset({
+                            index: 0,
+                            routes: [{ name: 'Main' }],
+                        }));
                     }
                 } else {
                     alert("Please enter Password Correctly");
@@ -55,7 +58,7 @@ const Signup = props => {
     };
 
     return (
-        <Backgroundone>
+        <Background source={require("./assets/leaves.jpg")}>
             <View style={{ alignItems: 'center', width: 390 }}>
                 <Text
                     style={{
@@ -162,7 +165,7 @@ const Signup = props => {
                     </View>
                 </View>
             </View>
-        </Backgroundone>
+        </Background>
     );
 };
 

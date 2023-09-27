@@ -1,9 +1,6 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import DetailScreen from './DetailScreen';
-import { FontAwesome } from 'react-native-vector-icons';
-import Backgroundfive from "./Background/Backgroundfive";
 
 const Feed = () => {
     const navigation = useNavigation();
@@ -60,7 +57,7 @@ const Feed = () => {
             address: '1st main road kempanna layout, Jayanagara, Bangalore-560041',
             phoneNumber: '080-225641654',
         },
-        // Add more posts here...
+
     ];
 
     return (

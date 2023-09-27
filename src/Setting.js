@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, Switch, StyleSheet, ScrollView } from 'react-native'; // Import ScrollView
 import { Picker } from '@react-native-picker/picker';
-import BackgroundScreen from './Background/BackgroundScreen';
 import Btn from './Btn';
 import { darkGreen } from './constants';
 import { useNavigation, StackActions } from "@react-navigation/native";
 import Auth from '@react-native-firebase/auth';
-import Backgroundfive from "./Background/Backgroundfive";
+import Background from "./Background";
+
+
 const Setting = () => {
     const navigation = useNavigation();
     const [showNotifications, setShowNotifications] = useState(false);
@@ -19,16 +20,16 @@ const Setting = () => {
             padding: 16,
         },
         text: {
-            color: 'white', // White text color for most text elements
+            color: 'white',
             fontSize: 20,
             fontWeight: 'bold',
         },
         highlightText: {
-            color: '#007BFF', // Highlighted text color
+            color: '#007BFF',
         },
         contentContainer: {
-            flexGrow: 1, // Allow content to grow
-            justifyContent: 'space-between', // Push content to the top and bottom
+            flexGrow: 1,
+            justifyContent: 'space-between',
         },
     });
 
@@ -38,16 +39,16 @@ const Setting = () => {
             padding: 16,
         },
         text: {
-            color: 'white', // White text color for most text elements
+            color: 'white',
             fontSize: 20,
             fontWeight: 'bold',
         },
         highlightText: {
-            color: '#007BFF', // Highlighted text color
+            color: '#007BFF',
         },
         contentContainer: {
-            flexGrow: 1, // Allow content to grow
-            justifyContent: 'space-between', // Push content to the top and bottom
+            flexGrow: 1,
+            justifyContent: 'space-between',
         },
     });
 
@@ -71,7 +72,7 @@ const Setting = () => {
     const styles = theme === 'dark' ? darkThemeStyles : lightThemeStyles;
 
     return (
-        <Backgroundfive>
+        <Background source={require("./assets/Background5.jpg")}>
             <View style={{ paddingBottom: 27 }}>
                 <Text style={{ fontSize: 30, color: '#007BFF' }}>Settings:</Text>
             </View>
@@ -94,7 +95,7 @@ const Setting = () => {
                         <Picker selectedValue={language} onValueChange={handleLanguageChange}>
                             <Picker.Item label="English" value="english" color="orange" />
                             <Picker.Item label="Spanish" value="spanish" color="orange" />
-                            {/* Add more language options here */}
+
                         </Picker>
                     </View>
                 </ScrollView>
@@ -107,7 +108,7 @@ const Setting = () => {
                     btnLabel='Logout'
                 />
             </View>
-        </Backgroundfive>
+        </Background>
     );
 };
 

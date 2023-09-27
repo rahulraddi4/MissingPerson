@@ -1,29 +1,26 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import Backgroundthree from './Backgroundthree';
-import Btn from './Btn';
+import Background from './Background';
 import { green, bgColor } from './constants';
-import LinearGradient from 'react-native-linear-gradient';
 
 const Adding = ({ navigation }) => {
     const [showConfirmation, setShowConfirmation] = useState(false);
 
-    // Function to handle confirming the upload
+
     const handleConfirm = () => {
-        // Perform any necessary actions before proceeding
-        // For example, navigate to the "Post" screen
+
         navigation.navigate("Post");
 
-        // Close the confirmation modal
+
         setShowConfirmation(false);
     };
 
     return (
-        <Backgroundthree>
+        <Background source={require("./assets/Background3.jpg")}>
             <ScrollView>
                 <View style={styles.container}>
 
-                    {/* Online Rules and Regulations Section */}
+
                     <View style={styles.rulesContainer}>
                         <Text style={styles.rulesHeading}>Online Rules and Regulations:</Text>
                         <Text style={styles.rulesText}>By proceeding, you acknowledge and agree to abide by these rules and regulations.{' '}
@@ -43,7 +40,7 @@ const Adding = ({ navigation }) => {
 
                 </View>
 
-                {/* Confirmation Modal */}
+
                 <Modal
                     transparent={true}
                     animationType="slide"
@@ -70,7 +67,7 @@ const Adding = ({ navigation }) => {
                     </View>
                 </Modal>
             </ScrollView>
-        </Backgroundthree>
+        </Background>
     );
 };
 
@@ -123,7 +120,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     cancelButton: {
-        backgroundColor: 'gray', // Updated background color for Cancel button
+        backgroundColor: 'gray',
     },
     rulesContainer: {
         backgroundColor: 'white',

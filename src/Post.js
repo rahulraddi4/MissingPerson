@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, Button, ScrollView, ActivityIndicator } from 'react-native';
 import DocumentPicker from 'react-native-document-picker';
-import { launchImageLibrary } from 'react-native-image-picker';
 import storage from '@react-native-firebase/storage';
-import { uploadBytes, getDownloadURL } from 'firebase/storage';
-import Backgroundthree from './Backgroundthree';
+import Background from './Background';
 import Field2 from './Field2';
 import database from '@react-native-firebase/database';
-import { SafeAreaView } from 'react-native';
-
 import { useNavigation } from '@react-navigation/native';
-import Feed from './Feed';
 
 
 const Post = () => {
@@ -31,7 +26,7 @@ const Post = () => {
     const writeToDatabase = async () => {
         try {
             setIsLoading(true);
-            // Define the data you want to store in the database
+
             const data = {
                 name,
                 age,
@@ -39,33 +34,21 @@ const Post = () => {
                 address,
                 contactNumber,
                 health,
-                imageUrl: imgDownloadUrl, // Store the image URL
+                imageUrl: imgDownloadUrl,
             };
-
-            // Reference to the Firebase database path where you want to store the data
             const databaseRef = database().ref('/missingPersons');
-
-            // Push the data to the database and get the unique key
             const newPostRef = await databaseRef.push();
             const postId = newPostRef.key;
             setPostId(postId);
-
-            // Create a folder in Firebase Storage with the same unique key
             const storageRef = storage().ref(`/post/${postId}`);
-
-            // Upload the data as JSON
             await storageRef.child('data.json').putString(JSON.stringify(data), 'raw');
-
             const imageResponse = storageRef.child(`${imageData.name}`);
             const imagePut = await imageResponse.putFile(imageData.fileCopyUri);
             setFullImgRefPath(imagePut.metadata.fullPath);
             const imageUrl = await imageResponse.getDownloadURL();
             setImgDownloadUrl(imageUrl);
             setIsLoading(false);
-            // Alert the user
             alert('Data and Image Uploaded Successfully');
-
-            // Navigate to the Feed.js page
             navigation.navigate('Feed');
         } catch (err) {
             console.log(err);
@@ -84,31 +67,16 @@ const Post = () => {
             console.log(err);
         }
     };
-
-
-
     const uploadImage = async () => {
         try {
-            // Create a folder in Firebase Storage with the same unique key
 
-
-            // After successfully uploading the image, write the data to the database
             writeToDatabase();
         } catch (err) {
             console.log(err);
         }
     };
-
-
-
-
-
-
-
-
-
     return (
-        <Backgroundthree>
+        <Background source={require("./assets/Background3.jpg")}>
 
             <View style={styles.container}>
                 <View style={styles.headerContainer}>
@@ -176,7 +144,7 @@ const Post = () => {
 
             </View>
 
-        </Backgroundthree>
+        </Background>
     );
 };
 

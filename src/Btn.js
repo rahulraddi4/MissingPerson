@@ -5,7 +5,7 @@ export default function Btn({ bgColor, btnLabel, textColor, Press, isLoading }) 
     return (
         <TouchableOpacity
             onPress={Press}
-            disabled={isLoading} // Disable the button when loading
+            disabled={isLoading}
             style={{
                 elevation: 5,
                 backgroundColor: bgColor,
